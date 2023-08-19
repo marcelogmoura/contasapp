@@ -12,6 +12,9 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import com.mgmoura.contasapp.repositories.ContaRepository;
+import com.mgmoura.contasapp.repositories.UsuarioRepository;
+
 @Configuration
 @ComponentScan(basePackages="com.mgmoura.contasapp")
 @EnableWebMvc
@@ -37,10 +40,20 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 		
 		dataSource.setDriverClassName("org.postgresql.Driver");
 		dataSource.setUrl("jdbc:postgresql://localhost:5432/bd_contasapp");
-		dataSource.setUsername("admin");
+		dataSource.setUsername("postgres");
 		dataSource.setPassword("1234567");
 		
 		return dataSource;
+	}
+	
+	@Bean
+	public UsuarioRepository getUsuarioRepository() {
+		return new UsuarioRepository(getDataSource());
+	}
+	
+	@Bean 
+	public ContaRepository getContaRepository() {
+		return new ContaRepository(getDataSource());
 	}
 }
 

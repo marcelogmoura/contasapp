@@ -18,7 +18,7 @@ public class Conta {
 	private Integer id;
 	private String nome;
 	private String descricao; 
-	private Date date;
+	private Date data;
 	private Double valor;
 	private Integer tipo;
 	private Usuario usuario;
