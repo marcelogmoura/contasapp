@@ -1,3 +1,5 @@
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -19,44 +21,46 @@
 		class="container d-flex justify-content-center align-items-center vh-100">
 		<div class="card p-4">
 
-			<h2 class="text-center">/criar Conta de Usuário</h2>
-			<p class="text-center">Preencha os campos.</p>
+			<h2 class="text-center">/criar conta de usuário</h2>
+			<p class="text-center">Preencha os campos abaixo.</p>
 
 			<h4>${mensagem}</h4>
 
 			<form method="post" action="/contasapp/criar-conta-post">
 
 				<div class="mb-2">
-					<label for="nome" class="form-label"> Nome:
-						</label> 
-						<input
+					<label for="nome" class="form-label">Nome:</label> 
+						<form:input
+						path="dto.nome"
 						type="text" 
 						class="form-control" 
 						id="nome" 
 						name="nome"
-						placeholder="Digite seu nome">
+						placeholder="Digite seu nome" />
 				</div>
 
 				<div class="mb-2">
 					<label for="email" class="form-label"> Email:
 					</label> 
-						<input
+						<form:input
+						path="dto.email"
 						type="email" 
 						class="form-control" 
 						id="email" 
 						name="email"
-						placeholder="seu@email">
+						placeholder="seu@email" />
 				</div>
 
 				<div class="mb-2">
 					<label for="senha" class="form-label"> Senha:
 						</label> 
-						<input
+						<form:input
+						path="dto.senha"
 						type="password" 
 						class="form-control" 
 						id="senha" 
 						name="senha"
-						placeholder=" * * * * *">
+						placeholder=" * * * * *" />
 				</div>
 
 				<div class="mb-2">
@@ -67,7 +71,7 @@
 						class="form-control"
 						id="senhaConfirm" 
 						name="senhaConfirm"
-						placeholder=" * * * * *">
+						placeholder=" * * * * *" />
 				</div>
 
 				<div class="d-grid">

@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mgmoura.contasapp.dtos.CriarContaDto;
+import com.mgmoura.contasapp.dtos.CriarUsuarioDto;
 import com.mgmoura.contasapp.entities.Usuario;
 import com.mgmoura.contasapp.repositories.UsuarioRepository;
 
@@ -20,11 +22,12 @@ public class CriarContaController {
 	@RequestMapping(value = "/criar-conta")
 	public ModelAndView criarConta() {
 		ModelAndView modelAndView = new ModelAndView("criar-conta");
+		modelAndView.addObject("dto" , new CriarContaDto());
 		return modelAndView;
 	}
 	
 	@RequestMapping(value = "/criar-conta-post", method = RequestMethod.POST)
-	public ModelAndView criarContaPost(HttpServletRequest request) {
+	public ModelAndView criarContaPost(CriarContaDto dto) {
 
 		ModelAndView modelAndView = new ModelAndView("criar-conta");
 		
@@ -32,11 +35,12 @@ public class CriarContaController {
 			
 			Usuario usuario = new Usuario();
 			
-			usuario.setNome(request.getParameter("nome"));
-			usuario.setEmail(request.getParameter("email"));
-			usuario.setSenha(request.getParameter("senha"));
+			usuario.setNome(dto.getNome());
+			usuario.setEmail(dto.getEmail());
+			usuario.setSenha(dto.getSenha());
 			
 			usuarioRepository.create(usuario);
+			dto = new CriarContaDto();
 			
 			modelAndView.addObject("mensagem" , "Usuário criado");
 			
@@ -44,6 +48,7 @@ public class CriarContaController {
 			modelAndView.addObject("mensagem" , "Erro: " + e.getMessage());
 		}
 		
+		modelAndView.addObject("dto", dto);
 		return modelAndView;
 	}
 

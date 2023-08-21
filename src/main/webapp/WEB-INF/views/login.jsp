@@ -17,7 +17,7 @@
 		class="container d-flex justify-content-center align-items-center vh-100">
 		<div class="card p-4">
 
-			<h2 class="text-center">Acesso ao Sistema</h2>
+			<h2 class="text-center">/acesso ao sistema</h2>
 
 			<p class="text-center">Preencha os dados abaixo.</p>
 

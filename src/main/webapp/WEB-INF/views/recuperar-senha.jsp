@@ -16,8 +16,8 @@
 		class="container d-flex justify-content-center align-items-center vh-100">
 		<div class="card p-4">
 
-			<h2 class="text-center">Esqueci minha senha</h2>
-			<p class="text-center">Informe seus dados para recuperar a senha.</p>
+			<h2 class="text-center">/esqueci minha senha</h2>
+			<p class="text-center">Informe os dados para recuperar a senha.</p>
 
 			<form>
 
