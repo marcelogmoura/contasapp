@@ -12,20 +12,27 @@
 <!-- Folhas de estilo CSS -->
 <link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css" />
 
+<!-- estilo CSS para as mensagens de erro de validação -->
+<style>
+	label.error { color: #d9534f; }
+	input.error { border: 2px solid #d9534f; }
+</style>
+
+
 </head>
 <body>
 
 
-	<div
-		class="container d-flex justify-content-center align-items-center vh-100">
-		<div class="card p-4">
+		<div class="row mt-5">
+		<div class="col-md-4 offset-4">
+        <div class="card p-4">
 
 			<h2 class="text-center">/criar conta de usuário</h2>
 			<p class="text-center">Preencha os campos abaixo.</p>
 
 			<h4>${mensagem}</h4>
 
-			<form method="post" action="/contasapp/criar-usuario-post">
+			<form id="formCriarUsuario" method="post" action="/contasapp/criar-usuario-post">
 
 				<div class="mb-2">
 					<label for="nome" class="form-label">Nome:</label> 
@@ -84,9 +91,51 @@
 
 			</form>
 		</div>
+	</div>	
 	</div>
 
+
 	<script src="resources/js/bootstrap.bundle.min.js"></script>
+	<script src="resources/js/jquery-3.7.0.min.js"></script>
+	<script src="resources/js/jquery.validate.min.js"></script>
+	<script src="resources/js/additional-methods.min.js"></script>
+	<script src="resources/js/messages_pt_BR.min.js"></script>
+
+
+	<script>
+		$(document).ready(function(){
+			$("#formCriarUsuario").validate({
+				rules: {
+					"nome": {
+						required: true,
+						minlength: 3,
+						maxlength: 100
+					},
+					"email": {
+						required: true,
+						email : true
+					},
+					"senha": {
+						required: true,
+						pattern: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+					},
+					"senhaConfirm": {
+						required: true,
+						equalTo: "#senha"
+					}
+				},
+					messages: {
+            		"senha": {
+            		pattern: "A senha deve conter pelo menos 3 caracteres, incluindo letras, números e pelo menos um caractere especial (@, $, !, %, *, ?, &)."
+            }
+        }
+
+				
+			});
+		})
+	</script>
+	
+
 
 </body>
 </html>
