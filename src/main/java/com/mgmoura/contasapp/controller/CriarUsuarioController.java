@@ -37,13 +37,16 @@ public class CriarUsuarioController {
 			usuario.setEmail(dto.getEmail());
 			usuario.setSenha(MD5Helper.encrypt(dto.getSenha()));
 			
-			usuarioRepository.create(usuario);
-			dto = new CriarUsuarioDto();
-			
-			modelAndView.addObject("mensagem" , "Usuário criado");
+			if(usuarioRepository.find(dto.getEmail()) !=null) {
+				modelAndView.addObject("mensagem_erro" , "E-mail já cadastrado");
+			}else {
+				usuarioRepository.create(usuario);
+				dto = new CriarUsuarioDto();
+				modelAndView.addObject("mensagem_sucesso" , "Usuário criado");
+			}
 			
 		}catch (Exception e) {
-			modelAndView.addObject("mensagem" , "Erro: " + e.getMessage());
+			modelAndView.addObject("mensagem_erro" , "Erro: " + e.getMessage());
 		}
 		
 		modelAndView.addObject("dto", dto);

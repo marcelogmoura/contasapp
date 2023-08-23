@@ -30,7 +30,9 @@
 			<h2 class="text-center">/criar conta de usuário</h2>
 			<p class="text-center">Preencha os campos abaixo.</p>
 
-			<h4>${mensagem}</h4>
+			<h4 class="text-success text-center">${mensagem_sucesso}</h4>
+			<h4 class="text-danger text-center">${mensagem_erro}</h4>
+	
 
 			<form id="formCriarUsuario" method="post" action="/contasapp/criar-usuario-post">
 
