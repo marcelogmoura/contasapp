@@ -16,4 +16,8 @@ create table conta (
 	foreign key(usuario_id)) references usuario(id)
 );
 
+create unique index idx_usuario_email
+on usuario(lower(email));
+
+
 

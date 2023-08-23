@@ -8,6 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mgmoura.contasapp.dtos.CriarUsuarioDto;
 import com.mgmoura.contasapp.entities.Usuario;
+import com.mgmoura.contasapp.helpers.MD5Helper;
 import com.mgmoura.contasapp.repositories.UsuarioRepository;
 
 @Controller
@@ -34,7 +35,7 @@ public class CriarUsuarioController {
 			
 			usuario.setNome(dto.getNome());
 			usuario.setEmail(dto.getEmail());
-			usuario.setSenha(dto.getSenha());
+			usuario.setSenha(MD5Helper.encrypt(dto.getSenha()));
 			
 			usuarioRepository.create(usuario);
 			dto = new CriarUsuarioDto();
