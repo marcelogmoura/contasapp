@@ -46,8 +46,8 @@
 				</div>
 
 				<div class="d-grid mt-2">
-					<a href="/contasapp/criar-conta" class="btn btn-light">
-						Não possui conta? Cadastre-se aqui! </a>
+					<a href="/contasapp/criar-usuario" class="btn btn-light">
+						Não possui usuário? Cadastre-se aqui! </a>
 				</div>
 			</form>
 		</div>

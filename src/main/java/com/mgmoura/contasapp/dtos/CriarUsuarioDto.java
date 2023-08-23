@@ -6,6 +6,8 @@ import lombok.Data;
 public class CriarUsuarioDto {
 	
 
-	
+	private String nome;
+	private String email;
+	private String senha;
 
 }

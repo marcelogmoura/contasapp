@@ -1,7 +1,6 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +25,7 @@
 
 			<h4>${mensagem}</h4>
 
-			<form method="post" action="/contasapp/criar-conta-post">
+			<form method="post" action="/contasapp/criar-usuario-post">
 
 				<div class="mb-2">
 					<label for="nome" class="form-label">Nome:</label> 
@@ -75,7 +74,7 @@
 				</div>
 
 				<div class="d-grid">
-					<button type="submit" class="btn btn-dark">Criar Conta</button>
+					<button type="submit" class="btn btn-dark">Criar usuário</button>
 				</div>
 
 				<div class="d-grid mt-2">
