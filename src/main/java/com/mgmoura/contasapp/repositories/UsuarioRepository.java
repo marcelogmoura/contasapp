@@ -66,8 +66,8 @@ public class UsuarioRepository {
 	
 	
 public Usuario find(String email , String senha) throws Exception {
-		
-		String sql = "select * from usuario where email = ?, ? ";
+				
+		String sql = "select * from usuario where email = ? and senha = ?";
 		
 		Object[] params = { email , senha };
 		
