@@ -28,6 +28,7 @@
 			<p class="text-center">Preencha os dados abaixo.</p>
 
 
+			<h4 class="text-danger text-center">${mensagem_erro}</h4>
 
 			<form id="formLogin" action="login-post" method="post">
 			
