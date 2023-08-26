@@ -7,16 +7,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>/cadastrar conta</title>
 
-<link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="../resources/css/bootstrap.min.css" type="text/css" />
 
 
 
 </head>
 <body>
-	<h1> cadastrar </h1>
+
+	<!-- componente navbar -->
+	<jsp:include page="/WEB-INF/views/admin/components/navbar.jsp"></jsp:include>
 	
-	
-	<script src="resources/js/bootstrap.bundle.min.js"></script>
+	<script src="../resources/js/bootstrap.bundle.min.js"></script>
 	
 
 </body>

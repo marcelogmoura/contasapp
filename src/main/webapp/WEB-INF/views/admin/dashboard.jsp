@@ -8,16 +8,18 @@
 
 <title>/dashboard</title>
 
-<link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="../resources/css/bootstrap.min.css" type="text/css" />
 
 
 </head>
 
 <body>
 
-	<h1> dash </h1>
+<!-- componente navbar -->
+	<jsp:include page="/WEB-INF/views/admin/components/navbar.jsp"></jsp:include>
 
-<script src="resources/js/bootstrap.bundle.min.js"></script>
+
+<script src="../resources/js/bootstrap.bundle.min.js"></script>
 
 
 </body>

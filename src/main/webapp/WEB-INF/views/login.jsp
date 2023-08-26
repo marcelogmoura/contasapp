@@ -23,7 +23,7 @@
 		<div class="col-md-4 offset-4">
         <div class="card p-4">
 
-			<h2 class="text-center">/acesso ao sistema</h2>
+			<h2 class="text-center">/login</h2>
 
 			<p class="text-center">Preencha os dados abaixo.</p>
 
