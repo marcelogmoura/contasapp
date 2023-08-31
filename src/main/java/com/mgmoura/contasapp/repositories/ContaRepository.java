@@ -16,14 +16,15 @@ public class ContaRepository {
 	
 	public void create(Conta conta) throws Exception{
 		
-		String sql = "insert into conta(nome, descricao, data, valor, tipo) values (?, ?, ?, ?, ? )" ;
+		String sql = "insert into conta(nome, descricao, data, valor, tipo, usuario_id) values (?, ?, ?, ?, ?, ? )" ;
 		
 		Object[] params = {
 				conta.getNome(),
 				conta.getDescricao(),
-				conta.getData(),
+				new java.sql.Date(conta.getData().getTime()),
 				conta.getValor(),
-				conta.getTipo()
+				conta.getTipo(),
+				conta.getUsuario().getId()
 			
 		};
 		

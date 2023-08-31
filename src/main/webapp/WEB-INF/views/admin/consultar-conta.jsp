@@ -31,7 +31,8 @@
 				<p>Selecione o período.</p>
 				<hr/>
 				
-				<form id="formConsulta">
+				<form id="formConsulta" action="cadastrar-conta-post" method="post">
+				
 					<div class="row mb-2">
 						<div class="col-md-3">
 							<input type="date" id="dataInicio" name="dataInicio" class="form-control"/>

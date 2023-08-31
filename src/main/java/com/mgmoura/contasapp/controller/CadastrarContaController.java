@@ -7,9 +7,12 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mgmoura.contasapp.dtos.UsuarioDto;
 import com.mgmoura.contasapp.entities.Conta;
+import com.mgmoura.contasapp.entities.Usuario;
 import com.mgmoura.contasapp.repositories.ContaRepository;
 
 @Controller
@@ -24,10 +27,8 @@ public class CadastrarContaController {
 		return modelAndView;
 	}
 	
-	// -->> verificar com a aula
-	
-	
-	@RequestMapping(value = "/admin/cadastrar-conta-post" )
+		
+	@RequestMapping(value = "/admin/cadastrar-conta-post" , method = RequestMethod.POST)
 	public ModelAndView cadastrarContaPost(HttpServletRequest request) {
 		
 		ModelAndView modelAndView = new ModelAndView("admin/cadastrar-conta");
@@ -35,12 +36,20 @@ public class CadastrarContaController {
 		try {
 			
 			Conta conta = new Conta();
+			conta.setUsuario(new Usuario());
 			
 			conta.setNome(request.getParameter("nome"));
 			conta.setDescricao(request.getParameter("descricao"));
-			// conta.setData(request.getParameter(new SimpleDateFormat("yyyy-MM-dd").parse("data")));
+			conta.setData(new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("data")));
+			conta.setValor(Double.parseDouble(request.getParameter("valor")));
+			conta.setDescricao(request.getParameter("descricao"));
+			conta.setTipo(Integer.parseInt(request.getParameter("tipo")));
 			
+			UsuarioDto usuarioDto = (UsuarioDto) request.getSession().getAttribute("usuario_auth");
 			
+			conta.getUsuario().setId(usuarioDto.getId());
+			
+						
 			contaRepository.create(conta);
 			
 			modelAndView.addObject("mensagem" , "Conta cadastrada");
