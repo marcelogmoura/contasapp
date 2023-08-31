@@ -49,12 +49,12 @@ public class CadastrarContaController {
 									
 			contaRepository.create(conta);
 			
-			modelAndView.addObject("mensagem" , "Conta cadastrada");
+			modelAndView.addObject("mensagem_sucesso" , "Conta cadastrada");
 			
 			
 		}catch (Exception e) {
 			
-			modelAndView.addObject("mensagem" , "Erro:" + e.getMessage());
+			modelAndView.addObject("mensagem_erro" , "Erro:" + e.getMessage());
 		}
 		
 		return modelAndView;
