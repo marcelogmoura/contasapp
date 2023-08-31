@@ -19,8 +19,12 @@
 	<jsp:include page="/WEB-INF/views/admin/components/navbar.jsp"></jsp:include>
 
 
-<script src="../resources/js/bootstrap.bundle.min.js"></script>
+	<div>
+	<h3> dashboard </h3>
+	</div>
 
+
+<script src="../resources/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

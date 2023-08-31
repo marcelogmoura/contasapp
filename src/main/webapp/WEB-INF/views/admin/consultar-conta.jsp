@@ -15,9 +15,13 @@
 
 	<!-- componente navbar -->
 	<jsp:include page="/WEB-INF/views/admin/components/navbar.jsp"></jsp:include>
-
-
-
+	
+	<div>
+	<h3> consultar </h3>
+	</div>
+	
+	
+	
 <script src="../resources/js/bootstrap.bundle.min.js"></script>
 
 

@@ -8,10 +8,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import com.mgmoura.contasapp.cache.CacheControl;
 import com.mgmoura.contasapp.repositories.ContaRepository;
 import com.mgmoura.contasapp.repositories.UsuarioRepository;
 
@@ -55,6 +57,12 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 	public ContaRepository getContaRepository() {
 		return new ContaRepository(getDataSource());
 	}
+	
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(new CacheControl());
+	}
+
 }
 
 
