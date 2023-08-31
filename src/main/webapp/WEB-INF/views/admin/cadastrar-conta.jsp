@@ -9,6 +9,22 @@
 
 <link rel="stylesheet" href="../resources/css/bootstrap.min.css"
 	type="text/css" />
+	
+	<!-- estilo CSS para as mensagens de erro de validação -->
+	<style>
+	label.error {
+		color: #d9534f;
+	}
+	input.error {
+		border: 2px solid #d9534f;
+	}
+	select.error {
+		border: 2px solid #d9534f;
+	}
+	textarea.error {
+		border: 2px solid #d9534f;
+	}
+	</style>
 
 </head>
 <body>
@@ -20,7 +36,7 @@
 		<div class="card">
 			<div class="card-body">
 				<h4>Cadastro de contas</h4>
-				<p>Faça o cadastro de suas contas a receber ou a pagar.</p>
+				<p>Contas a pagar ou receber.</p>
 				<hr />
 
 				<form>
@@ -57,10 +73,9 @@
 
 					<div class="row mb-2">
 						<div class="col-md-12">
-							<input type="submit" value="Realizar Cadastro"
-								class="btn btn-success" /> <a
-								href="/contasapp/admin/consultar-contas"
-								class="btn btn-dark"> Ir para a consulta </a>
+							<input type="submit" value="Cadastrar" class="btn btn-success" />
+							<a href="/contasapp/admin/consultar-contas" class="btn btn-dark">
+								Ir para a consulta </a>
 						</div>
 					</div>
 
@@ -69,6 +84,42 @@
 			</div>
 		</div>
 	</div>
+
+
+	<script src="../resources/js/bootstrap.bundle.min.js"></script>
+	<script src="../resources/js/jquery-3.7.0.min.js"></script>
+	<script src="../resources/js/jquery.validate.min.js"></script>
+	<script src="../resources/js/additional-methods.min.js"></script>
+	<script src="../resources/js/messages_pt_BR.min.js"></script>
+
+	<script>		
+		$(document).ready(function(){			
+			$("#formCadastro").validate({
+				rules: {
+					"nome": {
+						required: true,
+						minlength: 3,
+						maxlength: 100
+					},
+					"data": {
+						required: true
+					},
+					"valor": {
+						required: true
+					},
+					"descricao": {
+						required: true,
+						minlength: 3,
+						maxlength: 250
+					},
+					"tipo": {
+						required: true
+					}
+				}
+			});
+		})
+	</script>
+
 
 
 
