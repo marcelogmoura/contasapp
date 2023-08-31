@@ -24,6 +24,9 @@
 	<!-- componente navbar -->
 	<jsp:include page="/WEB-INF/views/admin/components/navbar.jsp"></jsp:include>
 	
+	<!-- componente messages -->
+	<jsp:include page="/WEB-INF/views/admin/components/messages.jsp"></jsp:include>
+	
 	<div class="container mt-4">
 		<div class="card">
 			<div class="card-body">
