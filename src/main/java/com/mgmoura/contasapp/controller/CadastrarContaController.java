@@ -39,17 +39,14 @@ public class CadastrarContaController {
 			conta.setUsuario(new Usuario());
 			
 			conta.setNome(request.getParameter("nome"));
-			conta.setDescricao(request.getParameter("descricao"));
 			conta.setData(new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("data")));
 			conta.setValor(Double.parseDouble(request.getParameter("valor")));
 			conta.setDescricao(request.getParameter("descricao"));
 			conta.setTipo(Integer.parseInt(request.getParameter("tipo")));
-			
-			UsuarioDto usuarioDto = (UsuarioDto) request.getSession().getAttribute("usuario_auth");
-			
+					
+			UsuarioDto usuarioDto = (UsuarioDto) request.getSession().getAttribute("usuario_auth");			
 			conta.getUsuario().setId(usuarioDto.getId());
-			
-						
+									
 			contaRepository.create(conta);
 			
 			modelAndView.addObject("mensagem" , "Conta cadastrada");

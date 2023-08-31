@@ -41,6 +41,7 @@ public class LoginController {
 			if(usuario != null) {
 				
 				UsuarioDto dto = new UsuarioDto();
+				dto.setId(usuario.getId());
 				dto.setNome(usuario.getNome());
 				dto.setEmail(usuario.getEmail());
 				dto.setDataHoraAcesso(new Date());

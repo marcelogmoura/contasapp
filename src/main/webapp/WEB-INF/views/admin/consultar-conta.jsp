@@ -31,7 +31,7 @@
 				<p>Selecione o período.</p>
 				<hr/>
 				
-				<form id="formConsulta" action="cadastrar-conta-post" method="post">
+				<form id="formConsulta">
 				
 					<div class="row mb-2">
 						<div class="col-md-3">

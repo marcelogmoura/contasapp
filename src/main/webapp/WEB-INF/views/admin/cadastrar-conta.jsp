@@ -38,8 +38,12 @@
 				<h4>Cadastro de contas</h4>
 				<p>Contas a pagar ou receber.</p>
 				<hr />
-
-				<form id="formCadastro">
+				
+				<div class="mb-2">
+					<strong>${mensagem}</strong>
+				</div>
+				
+				<form id="formCadastro" action="cadastrar-conta-post" method="post">
 
 					<div class="row mb-2">
 						<div class="col-md-6">

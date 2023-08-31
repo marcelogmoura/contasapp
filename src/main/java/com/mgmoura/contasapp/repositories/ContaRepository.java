@@ -15,8 +15,9 @@ public class ContaRepository {
 	}
 	
 	public void create(Conta conta) throws Exception{
-		
-		String sql = "insert into conta(nome, descricao, data, valor, tipo, usuario_id) values (?, ?, ?, ?, ?, ? )" ;
+				
+		String sql = "insert into conta(nome, descricao, data, valor, tipo, usuario_id) values(?,?,?,?,?,?)";
+
 		
 		Object[] params = {
 				conta.getNome(),
@@ -25,8 +26,7 @@ public class ContaRepository {
 				conta.getValor(),
 				conta.getTipo(),
 				conta.getUsuario().getId()
-			
-		};
+			};
 		
 		jdbcTemplate.update(sql , params);
 	}
