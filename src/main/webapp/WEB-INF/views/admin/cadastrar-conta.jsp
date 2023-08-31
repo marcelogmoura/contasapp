@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="../resources/css/bootstrap.min.css"
 	type="text/css" />
 	
-	<!-- estilo CSS para as mensagens de erro de validação -->
+
 	<style>
 	label.error {
 		color: #d9534f;
@@ -39,7 +39,7 @@
 				<p>Contas a pagar ou receber.</p>
 				<hr />
 
-				<form>
+				<form id="formCadastro">
 
 					<div class="row mb-2">
 						<div class="col-md-6">
@@ -74,7 +74,7 @@
 					<div class="row mb-2">
 						<div class="col-md-12">
 							<input type="submit" value="Cadastrar" class="btn btn-success" />
-							<a href="/contasapp/admin/consultar-contas" class="btn btn-dark">
+							<a href="/contasapp/admin/consultar-conta" class="btn btn-dark">
 								Ir para a consulta </a>
 						</div>
 					</div>
@@ -92,38 +92,35 @@
 	<script src="../resources/js/additional-methods.min.js"></script>
 	<script src="../resources/js/messages_pt_BR.min.js"></script>
 
-	<script>		
-		$(document).ready(function(){			
+<script>
+		$(document).ready(function() {
 			$("#formCadastro").validate({
-				rules: {
-					"nome": {
-						required: true,
-						minlength: 3,
-						maxlength: 100
+				rules : {
+					"nome" : {
+						required : true,
+						minlength : 3,
+						maxlength : 100
 					},
-					"data": {
-						required: true
+					"data" : {
+						required : true
 					},
-					"valor": {
-						required: true
+					"valor" : {
+						required : true
 					},
-					"descricao": {
-						required: true,
-						minlength: 3,
-						maxlength: 250
+					"descricao" : {
+						required : true,
+						minlength : 3,
+						maxlength : 250
 					},
-					"tipo": {
-						required: true
+					"tipo" : {
+						required : true
 					}
 				}
 			});
 		})
 	</script>
 
-
-
-
-	<script src="../resources/js/bootstrap.bundle.min.js"></script>
+	
 
 </body>
 </html>
