@@ -1,12 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ContasApp</title>
+<title>/consultar conta</title>
 
 <!-- Folhas de estilo CSS -->
 <link rel="stylesheet" href="../resources/css/bootstrap.min.css" type="text/css" />
@@ -34,20 +36,40 @@
 				<p>Selecione o período.</p>
 				<hr/>
 				
-				<form id="formConsulta">
+				<form id="formConsulta" action="consultar-conta-post" method="post">
 				
 					<div class="row mb-2">
 						<div class="col-md-3">
-							<input type="date" id="dataInicio" name="dataInicio" class="form-control"/>
+							<input 
+								type="date" 
+								id="dataInicio" 
+								name="dataInicio" 
+								class="form-control" 
+								value="${dt_inicio}"/>
 						</div>
+						
 						<div class="col-md-3">
-							<input type="date" id="dataFim" name="dataFim" class="form-control"/>
+							<input 
+								type="date" 
+								id="dataFim" 
+								name="dataFim" 
+								class="form-control"
+								value="${dt_fim}"/>
 						</div>
+						
 						<div class="col-md-6">
-							<input type="submit" value="Pesquisar Contas" class="btn btn-success"/>
+							<input 
+								type="submit" 
+								value="Pesquisar Contas" 
+								class="btn btn-success"/>
 						</div>
 					</div>
+					
 				</form>
+				
+				<c:if test="${not empty listagem_contas}">
+				
+			
 				
 				<div class="mt-3 table-responsive">
 					<table id="tabela" class="table table-sm">
@@ -61,28 +83,53 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+										
+										
+						<c:forEach items="${listagem_contas}" var="conta">	
+												
+						<tr>
 								<td>
-									<a href="/contasapp/admin/editar-conta" 
-									   class="btn btn-sm btn-outline-primary">
+									<fmt:formatDate value="${conta.data}" pattern="EEE, dd/MM/yyyy"/>
+								</td>
+								<td>
+									<fmt:formatNumber value="${conta.valor}" type="currency" currencySymbol="R$"/>
+								</td>
+								<td>
+									<c:if test="${conta.tipo == 1}">
+										<span class="badge bg-success">RECEBER</span>
+									</c:if>
+									<c:if test="${conta.tipo == 2}">
+										<span class="badge bg-danger">PAGAR</span>
+									</c:if>
+								</td>
+								<td>${conta.nome}</td>
+								<td>
+									<a href="/contasapp/admin/editar-conta?id=${conta.id}"
+									 class="btn btn-sm btn-outline-primary">
 										Editar
 									</a>
-									<a href="#" class="btn btn-sm btn-outline-danger">
+									</a>
+									
+									<a href="/contasapp/admin/excluir-conta?id=${conta.id}"
+										onclick="return confirm('Deseja excluir esta conta?');"
+										class="btn btn-sm btn-outline-danger">
 										Excluir
 									</a>
 								</td>
-							</tr>							
+							</tr>		
+							
+							</c:forEach>	
+													
 						</tbody>
 					</table>
 				</div>
 				
+				</c:if>	
+				
 			</div>
 		</div>
 	</div>
+	
 
 	<!-- Arquivos JavaScript -->
 	<script src="../resources/js/bootstrap.bundle.min.js"></script>
