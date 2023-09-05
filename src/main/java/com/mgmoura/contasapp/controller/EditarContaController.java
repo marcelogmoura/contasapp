@@ -43,10 +43,8 @@ public class EditarContaController {
 				
 				
 			}else {
-				modelAndView.addObject("redirect:/admin/consultar-conta");
-				
-			}
-			
+				modelAndView.addObject("redirect:/admin/consultar-conta");				
+			}			
 			
 		}catch (Exception e) {			
 			modelAndView.addObject("mensagem_erro" , e.getMessage());
