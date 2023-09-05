@@ -75,7 +75,6 @@ public class EditarContaController {
 			modelAndView.addObject("mensagem_sucesso" , "Conta atualizada com sucesso");
 			
 			
-			
 		}catch (Exception e) {
 			modelAndView.addObject("mensagem_erro" , e.getMessage());
 		}
