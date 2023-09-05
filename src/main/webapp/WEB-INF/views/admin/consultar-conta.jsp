@@ -89,7 +89,7 @@
 												
 						<tr>
 								<td>
-									<fmt:formatDate value="${conta.data}" pattern="EEE, dd/MM/yyyy"/>
+									<fmt:formatDate value="${conta.data}" pattern="EEEE, dd/MM/yyyy"/>
 								</td>
 								<td>
 									<fmt:formatNumber value="${conta.valor}" type="currency" currencySymbol="R$"/>

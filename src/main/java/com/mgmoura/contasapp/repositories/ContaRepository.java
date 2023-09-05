@@ -40,7 +40,7 @@ public class ContaRepository {
 	
 	public void update(Conta conta) throws Exception {
 		
-		String sql = "update conta set nome=?, descricao=?, data=?, valor=?, tipo=? where id=? ";
+		String sql = "update conta set nome=?, descricao=?, data=?, valor=?, tipo=?, where id=? ";
 		
 		Object[] params = {
 				conta.getNome(),
@@ -107,6 +107,48 @@ public class ContaRepository {
 		return contas;
 	}
 	
+	
+public Conta findById (Integer id) throws Exception{
+		
+		String sql = "select * from conta where id =?" ;
+		
+		Object[] params = {	id };
+		
+		List<Conta> contas = jdbcTemplate.query(sql, params, new RowMapper<Conta>() {
+
+			@Override
+			public Conta mapRow(ResultSet rs, int rowNum) throws SQLException {
+				
+				Conta conta = new Conta();
+				conta.setUsuario(new Usuario());
+				
+				conta.setId(rs.getInt("id"));
+				conta.setNome(rs.getString("nome"));
+				conta.setDescricao(rs.getString("descricao"));
+				conta.setValor(rs.getDouble("valor"));
+				conta.setTipo(rs.getInt("tipo"));
+				conta.getUsuario().setId(rs.getInt("usuario_id"));;
+				
+
+				try {
+					conta.setData(new SimpleDateFormat("yyyy-MM-dd").parse(rs.getString("data")));
+					
+				}catch (Exception e) {
+					e.printStackTrace();					
+				}
+				
+				return conta;
+			}
+			
+		});
+		
+		if(contas.size() == 1) {
+			return contas.get(0);
+		}else {
+			return null;
+			
+		}
+	}
 }
 
 
