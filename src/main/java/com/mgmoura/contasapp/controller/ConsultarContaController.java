@@ -46,9 +46,10 @@ public class ConsultarContaController {
 			} else {
 				modelAndView.addObject("mensagem_alerta", "Nenhuma conta foi encontrada para o período selecionado");
 			}
-
+			
 			modelAndView.addObject("dt_inicio", dataInicio);
 			modelAndView.addObject("dt_fim", dataFim);
+			
 			
 		} catch (Exception e) {
 			
