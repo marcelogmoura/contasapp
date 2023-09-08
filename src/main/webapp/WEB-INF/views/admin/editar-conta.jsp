@@ -74,8 +74,8 @@ textarea.error {
 							<label>Tipo da conta:</label> <select id="tipo" name="tipo"
 								class="form-select" ">
 								<option value="">Selecione uma opção</option>
-								<option value="1" ${tipo == 1 ? "selected" : "" }>Conta a receber</option>
-								<option value="2" ${tipo == 1 ? "selected" : "" }>Conta a pagar</option>
+								<option value="1"${tipo == 1 ? "selected" : ""}>Conta a receber</option>
+								<option value="2"${tipo == 2 ? "selected" : ""}>Conta a pagar</option>
 							</select>
 						</div>
 					</div>

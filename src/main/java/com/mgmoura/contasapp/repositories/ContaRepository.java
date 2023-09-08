@@ -40,8 +40,8 @@ public class ContaRepository {
 	
 	public void update(Conta conta) throws Exception {
 		
-		String sql = "update conta set nome=?, descricao=?, data=?, valor=?, tipo=?, where id=? ";
-		
+		String sql = "update conta set nome=?, descricao=?, data=?, valor=?, tipo=? where id=? ";
+				
 		Object[] params = {
 				conta.getNome(),
 				conta.getDescricao(),
@@ -110,7 +110,7 @@ public class ContaRepository {
 	
 public Conta findById (Integer id) throws Exception{
 		
-		String sql = "select * from conta where id =?" ;
+		String sql = "select * from conta where id = ?" ;
 		
 		Object[] params = {	id };
 		

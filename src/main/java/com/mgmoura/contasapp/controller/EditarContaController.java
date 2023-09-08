@@ -43,7 +43,7 @@ public class EditarContaController {
 				
 				
 			}else {
-				modelAndView.addObject("redirect:/admin/consultar-conta");				
+				modelAndView.setViewName("redirect:/admin/consultar-conta");			
 			}			
 			
 		}catch (Exception e) {			
@@ -66,6 +66,7 @@ public class EditarContaController {
 			conta.setNome(request.getParameter("nome"));
 			conta.setData(new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("data")));
 			conta.setValor(Double.parseDouble(request.getParameter("valor")));
+			conta.setTipo(Integer.parseInt(request.getParameter("tipo")));
 			conta.setDescricao(request.getParameter("descricao"));
 			
 			contaRepository.update(conta);
